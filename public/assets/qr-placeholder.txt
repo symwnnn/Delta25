@@ -1,0 +1,13 @@
+Replace this file with your actual QR code image (qr.png)
+
+The QR code should contain:
+- UPI ID for Indian payments
+- Crypto address (USDT/SOL/ETH) for international payments
+- Size: 200x200 pixels recommended
+- Format: PNG with transparent or white background
+
+Example QR content:
+- UPI: your-upi-id@paytm
+- USDT (TRC20): TYourUSDTAddressHere
+- SOL: YourSolanaAddressHere
+- ETH: 0xYourEthereumAddressHere

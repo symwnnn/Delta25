@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoKernel User Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="guide">
+    <div class="container">
+        <header class="header">
+            <h1>CryptoKernel User Guide</h1>
+            <a href="dashboard.html" class="btn-secondary">Back to Dashboard</a>
+        </header>
+
+        <div class="guide-content">
+            <section class="guide-section">
+                <h2>Getting Started</h2>
+                <p>CryptoKernel is a mathematical price projection platform that predicts cryptocurrency price movements using pure mathematical algorithms - no AI, no machine learning, just physics-based calculations.</p>
+                
+                <h3>Access Requirements</h3>
+                <ul>
+                    <li><strong>Access Key:</strong> Purchase a 90-day license for $35 USDT</li>
+                    <li><strong>Device Binding:</strong> Each key works on one device only</li>
+                    <li><strong>Real-Time Data:</strong> Live connections to Binance and DexScreener</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>Dashboard Overview</h2>
+                
+                <h3>Status Indicator</h3>
+                <ul>
+                    <li><strong>OFFLINE:</strong> No active connection</li>
+                    <li><strong>CONNECTING:</strong> Establishing connection to market data</li>
+                    <li><strong>BINANCE LIVE:</strong> Connected to Binance real-time data</li>
+                    <li><strong>DEXSCREENER LIVE:</strong> Connected to DexScreener real-time data</li>
+                    <li><strong>ERROR:</strong> Connection failed</li>
+                </ul>
+
+                <h3>Market Selection</h3>
+                <ul>
+                    <li><strong>Binance:</strong> Traditional crypto pairs (BTCUSDT, ETHUSDT, etc.)</li>
+                    <li><strong>DexScreener:</strong> Memecoins and DeFi tokens (contract addresses)</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>Real-Time Metrics</h2>
+                
+                <h3>Current Price</h3>
+                <p>Live price from the selected market, updated every 1-3 seconds.</p>
+
+                <h3>Velocity</h3>
+                <p><strong>What it means:</strong> Rate of price change ($/second)</p>
+                <ul>
+                    <li><strong>Positive (Green):</strong> Price increasing</li>
+                    <li><strong>Negative (Red):</strong> Price decreasing</li>
+                    <li><strong>Formula:</strong> (Price₂ - Price₁) / (Time₂ - Time₁)</li>
+                </ul>
+
+                <h3>Acceleration</h3>
+                <p><strong>What it means:</strong> Rate of velocity change ($/second²)</p>
+                <ul>
+                    <li><strong>Positive (Green):</strong> Price momentum increasing</li>
+                    <li><strong>Negative (Red):</strong> Price momentum decreasing</li>
+                    <li><strong>Formula:</strong> (Velocity₂ - Velocity₁) / (Time₂ - Time₁)</li>
+                </ul>
+
+                <h3>Volatility Compression</h3>
+                <p><strong>What it means:</strong> Market volatility state</p>
+                <ul>
+                    <li><strong>< 1.0 (Green):</strong> Volatility compressing (calming down)</li>
+                    <li><strong>> 1.0 (Red):</strong> Volatility expanding (getting more volatile)</li>
+                    <li><strong>= 1.0:</strong> Stable volatility</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>Price Predictions</h2>
+                
+                <h3>25-Second Projection</h3>
+                <p><strong>Shows:</strong> Expected price change in next 25 seconds</p>
+                <ul>
+                    <li><strong>Format:</strong> +$1.25 (+0.05%) or -$0.75 (-0.03%)</li>
+                    <li><strong>Direction:</strong> ↑ UP, ↓ DOWN, → FLAT</li>
+                    <li><strong>Confidence:</strong> Algorithm certainty (0-100%)</li>
+                    <li><strong>Updates:</strong> Every 25 seconds</li>
+                </ul>
+
+                <h3>1-Minute Prediction</h3>
+                <p><strong>Shows:</strong> Exact predicted price after 1 minute</p>
+                <ul>
+                    <li><strong>Format:</strong> $43,251.75 (absolute price)</li>
+                    <li><strong>Direction:</strong> ↑ UP, ↓ DOWN, → FLAT</li>
+                    <li><strong>Confidence:</strong> Algorithm certainty (0-100%)</li>
+                    <li><strong>Updates:</strong> Every 60 seconds</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>Mathematical Engine</h2>
+                
+                <h3>Physics-Based Approach</h3>
+                <p>CryptoKernel uses classical physics equations to predict price movements:</p>
+                <ul>
+                    <li><strong>Position:</strong> Current price</li>
+                    <li><strong>Velocity:</strong> Rate of price change</li>
+                    <li><strong>Acceleration:</strong> Rate of velocity change</li>
+                    <li><strong>Projection Formula:</strong> P(t+Δt) = P(t) + v×Δt + ½×a×Δt²</li>
+                </ul>
+
+                <h3>Data Requirements</h3>
+                <ul>
+                    <li><strong>Minimum Data Points:</strong> 5 price points needed</li>
+                    <li><strong>Rolling Window:</strong> Last 30 data points used</li>
+                    <li><strong>Update Frequency:</strong> Every 1-3 seconds</li>
+                    <li><strong>Volatility Clamping:</strong> Prevents unrealistic projections</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>How to Use</h2>
+                
+                <h3>Step-by-Step Guide</h3>
+                <ol>
+                    <li><strong>Select Market:</strong> Choose Binance or DexScreener</li>
+                    <li><strong>Enter Symbol:</strong> 
+                        <ul>
+                            <li>Binance: BTCUSDT, ETHUSDT, SOLUSDT</li>
+                            <li>DexScreener: Contract address or token symbol</li>
+                        </ul>
+                    </li>
+                    <li><strong>Click Start:</strong> Establishes real-time connection</li>
+                    <li><strong>Wait for Data:</strong> 5+ data points needed for predictions</li>
+                    <li><strong>Monitor Predictions:</strong> Watch 25s and 1min projections</li>
+                    <li><strong>Click Stop:</strong> Disconnects and resets dashboard</li>
+                </ol>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li><strong>Stable Connection:</strong> Ensure good internet for real-time data</li>
+                    <li><strong>Popular Pairs:</strong> Use high-volume trading pairs for better accuracy</li>
+                    <li><strong>Multiple Timeframes:</strong> Compare 25s and 1min predictions</li>
+                    <li><strong>Confidence Levels:</strong> Higher confidence = more reliable predictions</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>Troubleshooting</h2>
+                
+                <h3>Common Issues</h3>
+                <ul>
+                    <li><strong>"Connection Failed":</strong> Check internet connection, try different symbol</li>
+                    <li><strong>"No Data Received":</strong> Symbol might not exist or have low volume</li>
+                    <li><strong>"Invalid Symbol":</strong> Use correct format (BTCUSDT for Binance)</li>
+                    <li><strong>Metrics Show "--":</strong> Need 5+ data points, wait longer</li>
+                </ul>
+
+                <h3>Performance Tips</h3>
+                <ul>
+                    <li><strong>Use Popular Pairs:</strong> BTCUSDT, ETHUSDT have best data quality</li>
+                    <li><strong>Avoid Low Volume:</strong> Obscure tokens may have poor predictions</li>
+                    <li><strong>Check Confidence:</strong> >70% confidence recommended for trading decisions</li>
+                    <li><strong>Monitor Volatility:</strong> High volatility = less predictable</li>
+                </ul>
+            </section>
+
+            <section class="guide-section">
+                <h2>Disclaimer</h2>
+                <p><strong>Important:</strong> CryptoKernel provides mathematical projections based on historical price data. These are not financial advice and should not be used as the sole basis for trading decisions. Cryptocurrency markets are highly volatile and unpredictable. Always do your own research and never invest more than you can afford to lose.</p>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 CryptoKernel. Mathematical price projection platform.</p>
+        </footer>
+    </div>
+</body>
+</html>

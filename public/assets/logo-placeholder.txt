@@ -1,0 +1,9 @@
+Replace this file with your actual logo image (logo.png)
+
+Logo specifications:
+- Format: PNG with transparent background
+- Size: 200px width recommended (height auto)
+- Style: Should match the yellow/gold theme (#ffd700)
+- Content: CryptoKernel logo or brand symbol
+
+The logo will be displayed on the landing page instead of the text heading.

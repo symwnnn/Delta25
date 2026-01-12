@@ -1,0 +1,14 @@
+{
+  "name": "cryptokernel",
+  "version": "1.0.0",
+  "description": "Mathematical crypto price projection platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Static site - no build required'",
+    "start": "echo 'Static site deployed'"
+  },
+  "keywords": ["crypto", "trading", "prediction", "mathematics"],
+  "author": "CryptoKernel",
+  "license": "MIT"
+}

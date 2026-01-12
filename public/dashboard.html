@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta25 Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard">
+    <div class="container">
+        <header class="header">
+            <h1>Delta25</h1>
+            <div class="status-indicator" id="statusIndicator">OFFLINE</div>
+        </header>
+
+        <div class="controls">
+            <select id="marketSelector" class="select">
+                <option value="binance">Binance</option>
+                <option value="dexscreener">DexScreener</option>
+            </select>
+            
+            <input type="text" id="tokenInput" placeholder="BTCUSDT or Contract Address" class="token-input">
+            <button id="startBtn" class="btn-primary">Start</button>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Current Price</div>
+                <div class="metric-value" id="currentPrice">--</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Velocity</div>
+                <div class="metric-value" id="velocity">--</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Acceleration</div>
+                <div class="metric-value" id="acceleration">--</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-label">Volatility Compression</div>
+                <div class="metric-value" id="compression">--</div>
+            </div>
+        </div>
+
+        <div class="projection-panel">
+            <div class="projection-header">
+                <h2>25s Projection</h2>
+                <div class="countdown" id="countdown">25</div>
+            </div>
+            
+            <div class="projection-main">
+                <div class="projected-price" id="projectedPrice">--</div>
+                <div class="projection-meta">
+                    <span class="direction" id="direction">--</span>
+                    <span class="confidence" id="confidence">--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="projection-panel">
+            <div class="projection-header">
+                <h2>1 Min Prediction</h2>
+                <div class="countdown" id="minuteCountdown">60</div>
+            </div>
+            
+            <div class="projection-main">
+                <div class="projected-price" id="minuteProjectedPrice">--</div>
+                <div class="projection-meta">
+                    <span class="direction" id="minuteDirection">--</span>
+                    <span class="confidence" id="minuteConfidence">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Delta25 | <a href="guide.html" class="footer-link">User Guide</a></p>
+    </footer>
+
+    <script src="js/fingerprint.js"></script>
+    <script src="js/verifier.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/market.js"></script>
+    <script src="js/mathEngine.js"></script>
+    <script src="js/ui.js"></script>
+    
+    <script>
+        // Debug script to test if JS is loading
+        console.log('Dashboard scripts loaded');
+        
+        // Test if elements exist
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded');
+            const startBtn = document.getElementById('startBtn');
+            console.log('Start button found:', startBtn);
+            
+            if (startBtn) {
+                startBtn.addEventListener('click', () => {
+                    console.log('Start button clicked - basic test');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

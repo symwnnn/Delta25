@@ -1,0 +1,20 @@
+{
+  "name": "delta25-telegram-bot",
+  "version": "1.0.0",
+  "description": "Delta25 payment verification bot",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["telegram", "bot", "crypto", "payment", "verification"],
+  "author": "Delta25",
+  "license": "MIT"
+}
