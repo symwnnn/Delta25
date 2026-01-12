@@ -5,16 +5,22 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "dev": "nodemon bot.js"
+    "dev": "nodemon bot.js",
+    "railway": "node bot.js"
   },
   "dependencies": {
     "node-telegram-bot-api": "^0.66.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
   },
   "keywords": ["telegram", "bot", "crypto", "payment", "verification"],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "author": "Delta25",
   "license": "MIT"
 }

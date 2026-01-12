@@ -5,6 +5,7 @@ require('dotenv').config();
 const BOT_TOKEN = process.env.BOT_TOKEN || '8360848520:AAGSaChAjESWGw1gCtrjdZTXFZzWKgN1eEU';
 const ADMIN_IDS = []; // Will be populated when admin first interacts with bot
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'symwn_rana'; // Admin username without @
+const PORT = process.env.PORT || 3000;
 
 // Initialize bot
 const bot = new TelegramBot(BOT_TOKEN, { polling: true });
@@ -275,6 +276,8 @@ console.log('📋 Configuration:');
 console.log(`   Bot Token: ${BOT_TOKEN.substring(0, 20)}...`);
 console.log(`   Admin Username: @${ADMIN_USERNAME}`);
 console.log(`   Configured Admins: ${ADMIN_IDS.length === 0 ? 'None (use /admin_setup)' : ADMIN_IDS.length}`);
+console.log(`   Port: ${PORT}`);
+console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`);
 console.log('✅ Bot is running and ready for payments!');
 console.log('');
 console.log('📝 Next Steps:');
@@ -282,3 +285,22 @@ console.log('1. Admin (@symwn_rana) should message the bot: /admin_setup');
 console.log('2. Test with /myid to verify setup');
 console.log('3. Bot is ready for payment verification');
 console.log('');
+
+// Keep the process alive for Railway
+if (process.env.RAILWAY_ENVIRONMENT) {
+    const express = require('express');
+    const app = express();
+    
+    app.get('/', (req, res) => {
+        res.json({
+            status: 'Delta25 Telegram Bot is running',
+            uptime: process.uptime(),
+            admins: ADMIN_IDS.length,
+            timestamp: new Date().toISOString()
+        });
+    });
+    
+    app.listen(PORT, () => {
+        console.log(`🌐 Health check server running on port ${PORT}`);
+    });
+}
