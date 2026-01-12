@@ -287,7 +287,7 @@ console.log('3. Bot is ready for payment verification');
 console.log('');
 
 // Keep the process alive for Railway
-if (process.env.RAILWAY_ENVIRONMENT) {
+if (process.env.RAILWAY_ENVIRONMENT || process.env.NODE_ENV === 'production') {
     const express = require('express');
     const app = express();
     
@@ -296,11 +296,20 @@ if (process.env.RAILWAY_ENVIRONMENT) {
             status: 'Delta25 Telegram Bot is running',
             uptime: process.uptime(),
             admins: ADMIN_IDS.length,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            platform: 'Railway'
         });
     });
     
-    app.listen(PORT, () => {
+    app.get('/health', (req, res) => {
+        res.json({ 
+            status: 'healthy',
+            bot_running: true,
+            admins_configured: ADMIN_IDS.length > 0
+        });
+    });
+    
+    app.listen(PORT, '0.0.0.0', () => {
         console.log(`🌐 Health check server running on port ${PORT}`);
     });
 }

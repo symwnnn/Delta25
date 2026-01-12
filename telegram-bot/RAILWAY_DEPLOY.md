@@ -1,93 +1,84 @@
 # Deploy Delta25 Telegram Bot to Railway
 
-## 🚀 Quick Deploy
+## Prerequisites
+- Railway account (https://railway.app)
+- GitHub repository: https://github.com/symwnnn/Delta25.git
 
-1. **Go to Railway**: https://railway.app
-2. **Sign up/Login** with GitHub
-3. **New Project** → **Deploy from GitHub repo**
-4. **Select Repository**: `symwnnn/Delta25`
-5. **Select Service**: Choose `telegram-bot` folder
-6. **Configure Environment Variables**
+## Deployment Steps
 
-## 🔧 Environment Variables
+### Method 1: Railway Dashboard (Recommended)
 
-Set these in Railway dashboard:
+1. **Login to Railway**: https://railway.app
+2. **Create New Project**: Click "New Project"
+3. **Deploy from GitHub**: Select "Deploy from GitHub repo"
+4. **Select Repository**: Choose `symwnnn/Delta25`
+5. **Configure Service**:
+   - Root Directory: `telegram-bot`
+   - Build Method: Dockerfile (automatically detected)
 
-```
-BOT_TOKEN=8360848520:AAGSaChAjESWGw1gCtrjdZTXFZzWKgN1eEU
-ADMIN_USERNAME=symwn_rana
-NODE_ENV=production
-```
+6. **Set Environment Variables**:
+   ```
+   BOT_TOKEN=8360848520:AAGSaChAjESWGw1gCtrjdZTXFZzWKgN1eEU
+   ADMIN_USERNAME=symwn_rana
+   NODE_ENV=production
+   ```
 
-## 📋 Deployment Steps
+7. **Deploy**: Railway will automatically build using Dockerfile
 
-### Step 1: Create Railway Project
-1. Visit https://railway.app
-2. Click "Start a New Project"
-3. Select "Deploy from GitHub repo"
-4. Choose `symwnnn/Delta25`
+### Method 2: Railway CLI
 
-### Step 2: Configure Service
-1. Railway will detect the Node.js app
-2. Set root directory to `telegram-bot`
-3. Railway will use `package.json` automatically
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
 
-### Step 3: Set Environment Variables
-In Railway dashboard → Variables tab:
-- `BOT_TOKEN`: `8360848520:AAGSaChAjESWGw1gCtrjdZTXFZzWKgN1eEU`
-- `ADMIN_USERNAME`: `symwn_rana`
-- `NODE_ENV`: `production`
+# Login to Railway
+railway login
 
-### Step 4: Deploy
-1. Click "Deploy"
-2. Railway will build and start the bot
-3. Check logs for successful startup
+# Navigate to bot directory
+cd telegram-bot
 
-## ✅ Verification
+# Initialize Railway project
+railway init
 
-### Check Deployment
-1. **Logs**: Should show "Delta25 Telegram Bot Starting..."
-2. **Health Check**: Visit the Railway URL to see bot status
-3. **Telegram**: Message the bot `/admin_setup`
+# Set environment variables
+railway variables set BOT_TOKEN=8360848520:AAGSaChAjESWGw1gCtrjdZTXFZzWKgN1eEU
+railway variables set ADMIN_USERNAME=symwn_rana
+railway variables set NODE_ENV=production
 
-### Expected Log Output
-```
-🤖 Delta25 Telegram Bot Starting...
-📋 Configuration:
-   Bot Token: 8360848520:AAGSaChA...
-   Admin Username: @symwn_rana
-   Configured Admins: None (use /admin_setup)
-   Port: 3000
-   Environment: production
-✅ Bot is running and ready for payments!
-🌐 Health check server running on port 3000
+# Deploy
+railway up
 ```
 
-## 🔍 Troubleshooting
+## Configuration Files
 
-### Common Issues
-1. **Build Fails**: Check Node.js version (requires >=18.0.0)
-2. **Bot Not Responding**: Verify BOT_TOKEN is correct
-3. **Admin Setup Fails**: Check ADMIN_USERNAME matches exactly
+- ✅ `Dockerfile` - Container configuration
+- ✅ `railway.json` - Railway-specific settings
+- ✅ `.dockerignore` - Files to exclude from Docker build
+- ✅ `package.json` - Dependencies and scripts
 
-### Debug Commands
-- Check logs in Railway dashboard
-- Visit health check URL: `https://your-app.railway.app`
-- Test bot with `/myid` command
+## After Deployment
 
-## 🎯 Post-Deployment
+1. **Bot URL**: Railway will provide a public URL (e.g., `https://delta25-bot-production.up.railway.app`)
+2. **Admin Setup**: Message the bot `/admin_setup` from @symwn_rana
+3. **Health Check**: Visit `{BOT_URL}/health` to verify bot status
 
-1. **Test Admin Setup**: Send `/admin_setup` to bot
-2. **Test Payment Flow**: Send `/start` to test user experience
-3. **Monitor Logs**: Check Railway dashboard for any errors
-4. **Update Frontend**: Ensure payment modal points to correct bot
+## Testing
 
-## 🔗 Links
+1. Find your bot on Telegram
+2. Send `/admin_setup` from @symwn_rana account
+3. Test payment flow with `/start`
+4. Verify admin approval system works
 
-- **Railway Dashboard**: https://railway.app/dashboard
-- **Bot Health Check**: Will be provided after deployment
-- **Telegram Bot**: Search for your bot token on Telegram
+## Monitoring
 
----
+- Railway dashboard shows logs and metrics
+- Health endpoint: `{BOT_URL}/health`
+- Bot automatically restarts on crashes
+- Logs available in Railway console
 
-The bot will be live 24/7 on Railway and ready to handle payment verifications!
+## Troubleshooting
+
+- Check Railway logs for errors
+- Verify environment variables are set
+- Ensure bot token is valid
+- Confirm admin username is correct (@symwn_rana)
